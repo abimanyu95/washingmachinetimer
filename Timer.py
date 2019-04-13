@@ -1,20 +1,29 @@
 import winsound
 import time
+from easygui import boolbox
+
 frequency = 2500  # Set Frequency To 2500 Hertz
-duration = 1000  # Set Duration To 1000 ms == 1 second
+duration = 2000  # Set Duration To 1000 ms == 1 second
 
 
 def timer(minutes):
     time.sleep(minutes*60)
     winsound.Beep(frequency, duration)
+    message = "Is it done"
+    title = "Done?"
+    while True:
+        if boolbox(message, title, ["Yes", "No"]):
+           return
+        else:
+            continue
 
 
 def washer():
-    waterWash =  4
+    waterWash =  1
     waterRinse1 = 5
     waterRinse2 = 3
 
-    wash = 15
+    wash = 1
 
     rinse1 = 3
     rinse2 = 2
